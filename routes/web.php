@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LeaveController;
-use App\Http\Controllers\CertAppearController;
+use App\Http\Controllers\AppearanceController;
 
 
 Route::get('/', function () {
@@ -17,18 +17,24 @@ Auth::routes();
 Route::get('/home', [AdminController::class, 'dashboard'])->name('dashboard');
 
 // Certificate of Appearance
-Route::get('/cert_appearance_admin', [CertAppearController::class, 'admin'])->name('cert.appearance.admin');
-Route::get('/cert_appearance', [CertAppearController::class, 'index'])->name('cert.appearance');
-Route::get('/addcert_appearance', [CertAppearController::class, 'add'])->name('addcert.appearance');
-Route::post('/form_cert_appearance', [CertAppearController::class, 'store'])->name('form.cert.appearance');
-Route::get('/view_cert_appearance/{id}', [CertAppearController::class, 'viewpdf'])->name('view.cert.appearance');
+Route::get('/cert_appearance_admin', [AppearanceController::class, 'admin'])->name('cert.appearance.admin');
+Route::get('/cert_appearance', [AppearanceController::class, 'index'])->name('cert.appearance');
+Route::get('/addcert_appearance', [AppearanceController::class, 'add'])->name('add.cert.appearance');
+Route::get('/editcert_appearance{id}', [AppearanceController::class, 'edit'])->name('edit.cert.appearance');
+Route::post('/form_cert_appearance', [AppearanceController::class, 'store'])->name('store.cert.appearance');
+Route::post('/update_cert_appearance{id}', [AppearanceController::class, 'update'])->name('update.cert.appearance');
+Route::get('/delete_cert_appearance{id}', [AppearanceController::class, 'delete'])->name('delete.cert.appearance');
+Route::get('/view_cert_appearance{id}', [AppearanceController::class, 'viewpdf'])->name('view.cert.appearance');
 
 // Application for Leave
 Route::get('/leave_admin', [LeaveController::class, 'admin'])->name('leave.admin');
 Route::get('/leave_user', [LeaveController::class, 'index'])->name('leave.user');
 Route::get('/add_leave', [LeaveController::class, 'add'])->name('add.leave');
-Route::post('/leave_form', [LeaveController::class, 'store'])->name('leave.form');
-Route::get('/view_leave_form/{id}', [LeaveController::class, 'viewpdf'])->name('view.leave.form');
+Route::get('/edit_leave{id}', [LeaveController::class, 'edit'])->name('edit.leave');
+Route::post('/leave_form', [LeaveController::class, 'store'])->name('store.leave');
+Route::post('/update_leave{id}', [LeaveController::class, 'update'])->name('update.leave');
+Route::get('/delete_leave{id}', [LeaveController::class, 'delete'])->name('delete.leave');
+Route::get('/view_leave_form{id}', [LeaveController::class, 'viewpdf'])->name('view.leave');
 
 
 // Route::middleware(['check_admin_access'])->group(function () {

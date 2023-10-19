@@ -19,33 +19,54 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th class="text-center">ACTION</th>
                             <th>OFFICE</th>
                             <th>NAME</th>
                             <th>DATE OF FILING</th>
                             <th>POSITION</th>
                             <th>SALARY</th>
                             <th>APPROVED BY</th>
+                            <th class="text-center">ACTION</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         @foreach ($leaves as $leave)
                             <tr>
-                                {{-- action button --}}
-                                <td class="text-center">
-                                    <div>
-                                        <a href="{{ route('view.leave.form', $leave->id) }}" class="btn btn-primary waves-effect waves-light btn-warning" target="blank"><i class="ri-printer-fill"></i></a>
-                                        {{-- <button type="button" style="padding: 5px 10px;" class="btn btn-primary waves-effect waves-light btn-warning" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center"><i class="items-center fab fa-whmcs"></i></button> --}}
-                                    </div>
-                                </td>
-                                {{-- end action --}}
                                 <td class="text-wrap">{{ ($leave->office) }}</td>
                                 <td class="text-wrap">{{ ($leave->fname) }}{{ " " }}{{ ($leave->mname) }}{{ " " }}{{ ($leave->lname) }}{{ " " }}{{ ($leave->suffix) }}</td>
                                 <td class="text-wrap">{{ ($leave->date_filing) }}</td>
                                 <td class="text-wrap">{{ ($leave->position) }}</td>
                                 <td class="text-wrap">{{ ($leave->salary) }}</td>
                                 <td class="text-wrap">{{ ($leave->approved_by) }} {{ " - " }}{{ ($leave->designation) }}</td>
+                                {{-- action button --}}
+                                <td class="text-center">
+                                    <div>
+                                        <a href="{{ route('view.leave', $leave->id) }}" class="btn btn-primary waves-effect waves-light btn-warning" style="padding: 6px 10px;" target="blank"><i class="ri-printer-fill"></i></a>
+                                        <a href="{{ route('edit.leave', $leave->id) }}" type="button" class="btn btn-primary waves-effect waves-light" style="padding: 6px 10px;"><i class="ri-file-edit-line"></i></a>
+
+                                        <button type="button" type="button" class="btn btn-primary waves-effect waves-light btn-danger" style="padding: 6px 10px;" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center"><i class="ri-delete-bin-2-fill"></i></button>
+                                        <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Confirm Deletion</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <a href="{{ route('delete.leave', $leave->id) }}" type="button" class="btn btn-primary waves-effect waves-light btn-danger" style="padding: 5px 10px;">Confirm</a>
+                                                        @if (Auth::user()->is_admin == 1)
+                                                            <a style="padding: 5px 15px;" href="{{ route('leave.admin') }}" class="btn btn-primary btn-warning" type="button" style="padding: 5px 10px;">Cancel</a>
+                                                        @else
+                                                            <a style="padding: 5px 15px;" href="{{ route('leave.user') }}" class="btn btn-primary btn-warning" type="button" style="padding: 5px 10px;">Cancel</a>
+                                                        @endif
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
+
+                                    </div>
+                                </td>
+                                {{-- end action --}}
                             </tr>
                         @endforeach
                         </tbody>

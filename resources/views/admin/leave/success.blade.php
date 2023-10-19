@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="text-center ex-page-content">
-                            <h2>Request Sent</h2><br>
+                            <h2>Success</h2><br>
                             <a class="mb-5 btn btn-info waves-effect waves-light" href="{{ route('leave.admin') }}">Back</a>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="text-center ex-page-content">
-                            <h2>Request Sent</h2><br>
+                            <h2>Success</h2><br>
                             <a class="mb-5 btn btn-info waves-effect waves-light" href="{{ route('leave.user') }}">Back</a>
                         </div>
                     </div>
