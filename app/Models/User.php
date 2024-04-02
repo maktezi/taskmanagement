@@ -45,4 +45,13 @@ class User extends Authenticatable
     public function activity(){
         return $this->hasMany(Activity::class);
     }
+
+    public function task(){
+        return $this->hasMany(Task::class);
+    }
+
+    public function assigntask(){
+        return $this->hasMany(AssignTask::class);
+    }
+
 }

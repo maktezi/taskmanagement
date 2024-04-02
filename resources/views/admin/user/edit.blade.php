@@ -48,7 +48,7 @@
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label class="form-label">Password <small>(required)</small></label>
-                                <input value="{{ $data->password }}" type="password" class="form-control" name="password" placeholder="{{ $data->password }}" required/>
+                                <input value="{{ $data->password }}" type="password" class="form-control" name="password" required/>
                         </div>
                     </div>
                     <div class="col-md-12">

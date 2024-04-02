@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Department extends Model
+class Task extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'description',
+        'difficulty',
+        'priority',
     ];
 
     public function user(){
@@ -21,4 +22,5 @@ class Department extends Model
     public function assigntask(){
         return $this->hasMany(AssignTask::class);
     }
+
 }

@@ -158,7 +158,6 @@
                                         <span>Users</span>
                                     </a>
                                 </li>
-
                                 <li class="menu-title">USER MANAGEMENT</li>
                                 <li>
                                     <a href="{{ route('department.admin') }}" class="waves-effect">
@@ -169,36 +168,37 @@
                                 <li>
                                     <a href="{{ route('activity.admin') }}" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Activities</span>
+                                        <span>Activity</span>
                                     </a>
                                 </li>
+                                <li class="menu-title">TASK MANAGEMENT</li>
+                                <li>
+                                    <a href="{{ route('task.admin') }}" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Task</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('assigntask.admin') }}" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Assign Task</span>
+                                    </a>
+                                </li>
+                                <li class="menu-title">LOGS</li>
                                 <li>
                                     <a href="#" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
                                         <span>Logs</span>
                                     </a>
                                 </li>
-                                <li class="menu-title">TASK MANAGEMENT</li>
-                                <li>
-                                    <a href="#" class="waves-effect">
-                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Task</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="waves-effect">
-                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Assign Task</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="waves-effect">
-                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Task Status</span>
-                                    </a>
-                                </li>
 {{-- USER SIDE --}}
                             @else
+                                <li>
+                                    <a href="{{ route('dashboard') }}" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
                                 <li class="menu-title">USER MANAGEMENT</li>
                                 <li>
                                     <a href="{{ route('department') }}" class="waves-effect">
@@ -209,9 +209,23 @@
                                 <li>
                                     <a href="{{ route('activity') }}" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Activities</span>
+                                        <span>Activity</span>
                                     </a>
                                 </li>
+                                <li class="menu-title">TASK MANAGEMENT</li>
+                                <li>
+                                    <a href="{{ route('task') }}" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Task</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('assigntask') }}" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Assign Task</span>
+                                    </a>
+                                </li>
+                                <li class="menu-title">LOGS</li>
                                 <li>
                                     <a href="#" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>

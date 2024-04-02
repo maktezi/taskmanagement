@@ -36,8 +36,8 @@ class DepartmentController extends Controller
             ]);
 
             Alert::success('Submitted!');
-            return redirect('/department');
-            // return redirect()->back();
+            // return redirect('/department');
+            return redirect()->back();
 
         //     } catch(\Exception $e){
         //     Alert::warning('Something went wrong, please try again.');
@@ -59,8 +59,8 @@ class DepartmentController extends Controller
         $data->save();
 
         Alert::success('Updated!');
-        return redirect('/department');
-        // return redirect()->back();
+        // return redirect('/department');
+        return redirect()->back();
     }
 
     public function delete($id)

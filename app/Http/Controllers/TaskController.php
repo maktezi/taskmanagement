@@ -2,40 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activity;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class ActivityController extends Controller
+class TaskController extends Controller
 {
     public function admin()
     {
-        $activities = Activity::all();
-        return view('admin.activity.admin',compact('activities'));
+        $tasks = Task::all();
+        return view('admin.task.admin',compact('tasks'));
     }
 
     public function index()
     {
-        // $activities = activity::where('user_id', auth()->user()->id)->get();
-        $activities = Activity::all();
-        return view('admin.activity.index',compact('activities'));
+        // $tasks = task::where('user_id', auth()->user()->id)->get();
+        $tasks = Task::all();
+        return view('admin.task.index',compact('tasks'));
     }
 
     public function add(){
-        return view('admin.activity.add');
+        return view('admin.task.add');
     }
 
     public function store(Request $request)
     {
         // dd($request->all());
         // try{
-            Activity::create([
+            Task::create([
                 'user_id'=> auth()->user()->id,
                 'name'=> $request->name,
-                'description'=> $request->description,
+                'difficulty'=> $request->difficulty,
+                'priority'=> $request->priority,
             ]);
 
             Alert::success('Submitted!');
+            // return redirect('/task');
             return redirect()->back();
 
         //     } catch(\Exception $e){
@@ -46,24 +48,26 @@ class ActivityController extends Controller
 
     public function edit($id)
     {
-        $data = Activity::find($id);
-        return view('admin.activity.edit', compact('data'));
+        $data = Task::find($id);
+        return view('admin.task.edit', compact('data'));
     }
 
     public function update(Request $request, $id)
     {
-        $data = Activity::find($id);
+        $data = Task::find($id);
         $data->name = $request->input('name');
-        $data->description = $request->input('description');
+        $data->difficulty = $request->input('difficulty');
+        $data->priority = $request->input('priority');
         $data->save();
 
         Alert::success('Updated!');
+        // return redirect('/task');
         return redirect()->back();
     }
 
     public function delete($id)
     {
-        Activity::find($id)->delete();
+        Task::find($id)->delete();
         Alert::toast('Successfully Deleted!');
         return redirect()->back();
     }

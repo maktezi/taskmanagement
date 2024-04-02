@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\AssignTaskController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('index');
@@ -38,8 +40,26 @@ Route::post('/form_activity', [ActivityController::class, 'store'])->name('store
 Route::post('/update_activity{id}', [ActivityController::class, 'update'])->name('update.activity');
 Route::get('/delete_activity{id}', [ActivityController::class, 'delete'])->name('delete.activity');
 
+// Task
+Route::get('/task', [TaskController::class, 'index'])->name('task');
+Route::get('/add_task', [TaskController::class, 'add'])->name('add.task');
+Route::get('/edit_task{id}', [TaskController::class, 'edit'])->name('edit.task');
+Route::post('/form_task', [TaskController::class, 'store'])->name('store.task');
+Route::post('/update_task{id}', [TaskController::class, 'update'])->name('update.task');
+Route::get('/delete_task{id}', [TaskController::class, 'delete'])->name('delete.task');
+
+// Assign Task
+Route::get('/assigntask', [AssignTaskController::class, 'index'])->name('assigntask');
+Route::get('/add_assigntask', [AssignTaskController::class, 'add'])->name('add.assigntask');
+Route::get('/edit_assigntask{id}', [AssignTaskController::class, 'edit'])->name('edit.assigntask');
+Route::post('/form_assigntask', [AssignTaskController::class, 'store'])->name('store.assigntask');
+Route::post('/update_assigntask{id}', [AssignTaskController::class, 'update'])->name('update.assigntask');
+Route::get('/delete_assigntask{id}', [AssignTaskController::class, 'delete'])->name('delete.assigntask');
+
 Route::middleware(['check_admin_access'])->group(function () {
     Route::get('/users', [UserController::class, 'admin'])->name('users.admin');
     Route::get('/department_admin', [DepartmentController::class, 'admin'])->name('department.admin');
     Route::get('/activity_admin', [ActivityController::class, 'admin'])->name('activity.admin');
+    Route::get('/task_admin', [TaskController::class, 'admin'])->name('task.admin');
+    Route::get('/assigntask_admin', [AssignTaskController::class, 'admin'])->name('assigntask.admin');
 });
