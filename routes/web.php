@@ -2,11 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\LeaveController;
-use App\Http\Controllers\AppearanceController;
-
+use App\Http\Controllers\DepartmentController;
 
 Route::get('/', function () {
     return view('index');
@@ -16,27 +14,16 @@ Auth::routes();
 
 Route::get('/home', [AdminController::class, 'dashboard'])->name('dashboard');
 
-// Certificate of Appearance
-Route::get('/cert_appearance_admin', [AppearanceController::class, 'admin'])->name('cert.appearance.admin');
-Route::get('/cert_appearance', [AppearanceController::class, 'index'])->name('cert.appearance');
-Route::get('/addcert_appearance', [AppearanceController::class, 'add'])->name('add.cert.appearance');
-Route::get('/editcert_appearance{id}', [AppearanceController::class, 'edit'])->name('edit.cert.appearance');
-Route::post('/form_cert_appearance', [AppearanceController::class, 'store'])->name('store.cert.appearance');
-Route::post('/update_cert_appearance{id}', [AppearanceController::class, 'update'])->name('update.cert.appearance');
-Route::get('/delete_cert_appearance{id}', [AppearanceController::class, 'delete'])->name('delete.cert.appearance');
-Route::get('/view_cert_appearance{id}', [AppearanceController::class, 'viewpdf'])->name('view.cert.appearance');
+// Annex F 2316 Form
+Route::get('/department', [DepartmentController::class, 'index'])->name('department');
+Route::get('/add_department', [DepartmentController::class, 'add'])->name('add.department');
+Route::get('/edit_department{id}', [DepartmentController::class, 'edit'])->name('edit.department');
+Route::post('/form_department', [DepartmentController::class, 'store'])->name('store.department');
+Route::post('/update_department{id}', [DepartmentController::class, 'update'])->name('update.department');
+Route::get('/delete_department{id}', [DepartmentController::class, 'delete'])->name('delete.department');
 
-// Application for Leave
-Route::get('/leave_admin', [LeaveController::class, 'admin'])->name('leave.admin');
-Route::get('/leave_user', [LeaveController::class, 'index'])->name('leave.user');
-Route::get('/add_leave', [LeaveController::class, 'add'])->name('add.leave');
-Route::get('/edit_leave{id}', [LeaveController::class, 'edit'])->name('edit.leave');
-Route::post('/leave_form', [LeaveController::class, 'store'])->name('store.leave');
-Route::post('/update_leave{id}', [LeaveController::class, 'update'])->name('update.leave');
-Route::get('/delete_leave{id}', [LeaveController::class, 'delete'])->name('delete.leave');
-Route::get('/view_leave_form{id}', [LeaveController::class, 'viewpdf'])->name('view.leave');
-
-
-// Route::middleware(['check_admin_access'])->group(function () {
-//     Route::get('/qrcode', [QrCodeController::class, 'show'])->name('qrcode');
-// });
+Route::middleware(['check_admin_access'])->group(function () {
+    Route::get('/users', [UserController::class, 'admin'])->name('users.admin');
+    Route::get('/department_admin', [DepartmentController::class, 'admin'])->name('department.admin');
+    // Route::get('/qrcode', [QrCodeController::class, 'show'])->name('qrcode');
+});

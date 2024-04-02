@@ -35,11 +35,7 @@ class User extends Authenticatable
         return $this->is_admin === 1;
     }
 
-    public function appearance(){
-        return $this->hasMany(Appearance::class);
-    }
-
-    public function leave(){
-        return $this->hasMany(Leave::class);
+    public function department(){
+        return $this->hasMany(Department::class);
     }
 }

@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>{{ config('app.name', 'Laravel') }}</title>
-  <link rel="shortcut icon" href="assets/images/bagong-pilipinas-logo.png">
+  <link rel="shortcut icon" href="assets_index/logo.png">
 
   <link href="assets_index/img/apple-touch-icon.png" rel="apple-touch-icon">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -29,7 +29,7 @@
       <div class="logo">
         {{-- <h1><a href="index.html"><span>Bootslander</span></a></h1> --}}
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="/" class="logo me-auto"><img src="assets/images/bagong-pilipinas-logo.png" alt="" class="img-fluid"></a>
+        <a href="/" class="logo me-auto"><img src="assets_index/logo.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -67,10 +67,10 @@
       <div class="row justify-content-between">
         <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
           <div data-aos="zoom-out">
-            <h1>Online <span>Forms</span></h1>
-            <h2>Efficient digital interfaces for citizens to submit information, enhancing government services and accountability.</h2>
+            <h1><span>Task</span> Management System</h1>
+            <h2>Helps organize and prioritize work. By creating tasks, assigning them, setting deadlines, and tracking progress. This system enhance collaboration, streamline workflow, and ensure timely completion of projects.</h2>
             <div class="text-center text-lg-start">
-              <a href="{{ route('login') }}" class="btn-get-started scrollto">Get Started</a>
+              <a href="{{ route('dashboard') }}" class="btn-get-started scrollto">ENTER</a>
             </div>
           </div>
         </div>
@@ -79,21 +79,6 @@
         </div>
       </div>
     </div>
-
-    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-      <defs>
-        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-      </defs>
-      <g class="wave1">
-        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .3)">
-      </g>
-      <g class="wave2">
-        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
-      </g>
-      <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="9" fill="rgba(255,255,255, .1)">
-      </g>
-    </svg>
 
   </section>
 
@@ -107,8 +92,7 @@
         <div class="row">
 
           <div class="footer-newsletter">
-            <h4 class="text-center">Bagong Pilipinas - Online Forms</h4>
-            {{-- <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p> --}}
+            <h4 class="text-center">PHILIPPIAN - Task Management System</h4>
           </div>
 
         </div>
@@ -117,10 +101,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Bagong Pilipinas</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Developed by <a href="https://google.com/">OwO</a>
+        Developed by <strong><span>MakTezi</span></strong>
       </div>
     </div>
   </footer>
@@ -132,7 +113,7 @@
   <script src="assets_index/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets_index/vendor/php-email-form/validate.js"></script>
   <script src="assets_index/js/main.js"></script>
-
+  @include('sweetalert::alert')
 </body>
 
 </html>

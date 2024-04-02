@@ -1,7 +1,6 @@
 
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -9,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/images/bagong-pilipinas-logo.png">
+    <link rel="shortcut icon" href="assets_index/logo.png">
 
     <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
@@ -41,10 +40,10 @@
                         <div class="navbar-brand-box">
                             <a href="/" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets/images/bagong-pilipinas-logo.png" alt="logo-sm-light" height="35">
+                                    <img src="assets_index/logo.png" alt="logo-sm" height="35">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/bagong-pilipinas-logo.png" alt="logo-light" height="75">
+                                    <img src="assets_index/logo.png" alt="logo" height="50">
                                 </span>
                             </a>
                         </div>
@@ -52,14 +51,6 @@
                         <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
                             <i class="ri-menu-2-line align-middle"></i>
                         </button>
-
-                        <!-- App Search-->
-                        <form class="app-search d-none d-lg-block">
-                            <div class="position-relative">
-                                <input type="text" class="form-control" placeholder="Online Forms">
-                                <span class="ri-search-line"></span>
-                            </div>
-                        </form>
 
                         <div class="dropdown d-inline-block d-lg-none ms-2">
                             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
@@ -161,33 +152,64 @@
                                         <span>Dashboard</span>
                                     </a>
                                 </li>
-
-                                <li class="menu-title">DATA TABLE</li>
                                 <li>
-                                    <a href="{{ route('leave.admin') }}" class="waves-effect">
+                                    <a href="{{ route('users.admin') }}" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Application for Leave</span>
+                                        <span>Users</span>
+                                    </a>
+                                </li>
+
+                                <li class="menu-title">USER MANAGEMENT</li>
+                                <li>
+                                    <a href="{{ route('department.admin') }}" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Department</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('cert.appearance.admin') }}" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Certificate of Appearance</span>
+                                        <span>Activities</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Logs</span>
+                                    </a>
+                                </li>
+                                <li class="menu-title">TASK MANAGEMENT</li>
+                                <li>
+                                    <a href="#" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Task</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Assign Task</span>
                                     </a>
                                 </li>
 {{-- USER SIDE --}}
                             @else
-                                <li class="menu-title">Form & Table</li>
+                                <li class="menu-title">USER MANAGEMENT</li>
                                 <li>
-                                    <a href="{{ route('leave.user') }}" class="waves-effect">
+                                    <a href="{{ route('department') }}" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Application for Leave</span>
+                                        <span>Department</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('cert.appearance') }}" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
-                                        <span>Certificate of Appearance</span>
+                                        <span>Activities</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Logs</span>
                                     </a>
                                 </li>
                             @endif
@@ -217,11 +239,11 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © Bagong Pilipinas
+                                <script>document.write(new Date().getFullYear())</script> © Philippian
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Developed by axi0MX
+                                    Developed by MakTezi
                                 </div>
                             </div>
                         </div>
@@ -265,6 +287,6 @@
         <script src="assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
         <script src="assets/js/pages/form-advanced.init.js"></script>
         <script src="assets/js/app.js"></script>
-
+        @include('sweetalert::alert')
     </body>
 </html>
