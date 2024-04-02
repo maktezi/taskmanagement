@@ -17,7 +17,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_admin'
+        'is_admin',
+        'date_of_birth',
+        'position',
+        'salary',
     ];
 
     protected $hidden = [
@@ -37,5 +40,9 @@ class User extends Authenticatable
 
     public function department(){
         return $this->hasMany(Department::class);
+    }
+
+    public function activity(){
+        return $this->hasMany(Activity::class);
     }
 }

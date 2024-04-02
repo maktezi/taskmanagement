@@ -167,7 +167,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="waves-effect">
+                                    <a href="{{ route('activity.admin') }}" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
                                         <span>Activities</span>
                                     </a>
@@ -191,6 +191,12 @@
                                         <span>Assign Task</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="#" class="waves-effect">
+                                        <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                        <span>Task Status</span>
+                                    </a>
+                                </li>
 {{-- USER SIDE --}}
                             @else
                                 <li class="menu-title">USER MANAGEMENT</li>
@@ -201,7 +207,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="waves-effect">
+                                    <a href="{{ route('activity') }}" class="waves-effect">
                                         <i class="fab fa-dev"></i><span class="badge rounded-pill bg-success float-end"></span>
                                         <span>Activities</span>
                                     </a>

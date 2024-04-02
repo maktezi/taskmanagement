@@ -34,16 +34,16 @@
                         </thead>
 
                         <tbody>
-                        @foreach ($Departments as $Department)
+                        @foreach ($departments as $department)
                             <tr>
-                                <td class="text-wrap">{{ ($Department->name) }}</td>
-                                <td class="text-wrap">{{ ($Department->description) }}</td>
+                                <td class="text-wrap">{{ ($department->name) }}</td>
+                                <td class="text-wrap">{{ ($department->description) }}</td>
                                 {{-- action button --}}
                                 @if (Auth::user()->is_admin == 1)
                                 <td class="text-center">
                                     <div>
-                                        <a href="{{ route('edit.department', $Department->id) }}" class="btn btn-primary waves-effect waves-light" style="padding: 5px 10px;"><i class="ri-file-edit-line"></i></a>
-                                        <a href="{{ route('delete.department', $Department->id) }}" class="btn btn-primary waves-effect waves-light btn-danger" style="padding: 5px 10px;" onclick="confirmDelete(event)"><i class="ri-delete-bin-2-fill"></i></a>
+                                        <a href="{{ route('edit.department', $department->id) }}" class="btn btn-primary waves-effect waves-light" style="padding: 5px 10px;"><i class="ri-file-edit-line"></i></a>
+                                        <a href="{{ route('delete.department', $department->id) }}" class="btn btn-primary waves-effect waves-light btn-danger" style="padding: 5px 10px;" onclick="confirmDelete(event)"><i class="ri-delete-bin-2-fill"></i></a>
                                     </div>
                                 </td>
                                 @endif

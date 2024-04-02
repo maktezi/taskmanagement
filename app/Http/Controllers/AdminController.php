@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\User;
+use App\Models\Activity;
 
 class AdminController extends Controller
 {
@@ -17,7 +18,8 @@ class AdminController extends Controller
     {
         $totalUser = User::count();
         $totalDepartment = Department::count();
-        return view('admin.dashboard',compact('totalUser', 'totalDepartment'));
+        $totalActivity = Activity::count();
+        return view('admin.dashboard',compact('totalUser', 'totalDepartment', 'totalActivity'));
     }
 
 }

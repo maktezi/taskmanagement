@@ -6,9 +6,9 @@
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
             <h4 class="mb-sm-0">EDIT - FORM</h4>
             @if (Auth::user()->is_admin == 1)
-                <a style="padding: 5px 15px;" href="{{ route('department.admin') }}" class="btn btn-primary btn-danger" type="button"><i class="fas fa-chevron-left"></i> Back</a>
+                <a style="padding: 5px 15px;" href="{{ route('activity.admin') }}" class="btn btn-primary btn-danger" type="button"><i class="fas fa-chevron-left"></i> Back</a>
             @else
-                <a style="padding: 5px 15px;" href="{{ route('department') }}" class="btn btn-primary btn-danger" type="button"><i class="fas fa-chevron-left"></i> Back</a>
+                <a style="padding: 5px 15px;" href="{{ route('activity') }}" class="btn btn-primary btn-danger" type="button"><i class="fas fa-chevron-left"></i> Back</a>
             @endif
         </div>
     </div>
@@ -17,8 +17,8 @@
 <div class="col-xl-10 mx-auto">
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title text-center">EDIT<br>DEPARTMENT</h3><br>
-            <form action="{{ route('update.department', $data->id) }}" method="POST" class="needs-validation">
+            <h3 class="card-title text-center">EDIT<br>ACTIVITY</h3><br>
+            <form action="{{ route('update.activity', $data->id) }}" method="POST" class="needs-validation">
                 @csrf
 
                 <div class="row">
